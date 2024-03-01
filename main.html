@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Chat With Image</title>
+	<link rel="stylesheet" type="text/css" href="main.css"/>
+	<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+	<h1>Chat With Image</h1>
+	<hr/>
+	<div id="conversation">
+		<table id="statement_list">
+			<tr>
+				<td>Test:</td>
+				<td>Hogehoge</td>
+			</tr>
+		</table>
+	</div>
+	<hr/>
+	<div id="menu_bar">
+		<div id="name_area">
+			Name: <span id="name"></span>
+		</div>
+		<div id="message_area">
+			<label for="message">Message:</label>
+			<input id="message" type="text"/>
+		</div>
+		<div id="file_upload_area">
+			<label for="file_upload">File:</label>
+			<input type="file" id="file_upload" name="file_upload" accept="image/*">
+		</div>
+		
+		<div id="send_button_area">
+			<button id="send_button">Send</button>
+		</div>
+		<div id="end_button_area">
+			<form method="post" action="end">
+				<input id="end_button" type="submit" value="End"/>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

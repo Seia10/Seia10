@@ -1,0 +1,43 @@
+plugins {
+  id 'war'
+  id 'org.gretty' version '4.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+ 
+sourceSets {
+    integrationTest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+configurations {
+    integrationTestImplementation.extendsFrom testImplementation
+    integrationTestRuntimeOnly.extendsFrom testRuntimeOnly
+}
+
+dependencies {
+  compileOnly 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+  testImplementation 'org.htmlunit:htmlunit:3.4.0'
+  testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+gretty {
+  httpPort = 8080
+  contextPath = '/staff'
+}
+
+task integrationTest(type: Test) {
+    useJUnitPlatform()
+    testClassesDirs = sourceSets.integrationTest.output.classesDirs
+    classpath = sourceSets.integrationTest.runtimeClasspath
+    testLogging {
+        events "passed", "failed", "skipped"
+    }
+}
+
+check.dependsOn integrationTest

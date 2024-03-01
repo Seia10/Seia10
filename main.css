@@ -1,0 +1,25 @@
+#conversation {
+	height: 30em;
+	overflow: scroll;
+}
+
+#name_area {
+	float: left;
+}
+
+#message_area {
+	margin-left: 2em;
+	float: left;
+}
+
+#message {
+	width: 20em;
+}
+
+#send_button_area {
+	float: left;
+}
+
+#end_button_area {
+	float: right;
+}
